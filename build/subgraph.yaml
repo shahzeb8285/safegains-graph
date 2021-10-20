@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Referral
@@ -19,7 +19,7 @@ dataSources:
         - ReferralRecorded
       abis:
         - name: Referral
-          file: ./abis/Referral.json
+          file: Referral/abis/Referral.json
       eventHandlers:
         - event: OperatorUpdated(indexed address,indexed bool)
           handler: handleOperatorUpdated
@@ -29,4 +29,4 @@ dataSources:
           handler: handleReferralCommissionRecorded
         - event: ReferralRecorded(indexed address,indexed address)
           handler: handleReferralRecorded
-      file: ./src/mapping.ts
+      file: Referral/Referral.wasm
