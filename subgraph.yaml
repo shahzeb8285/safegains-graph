@@ -1,0 +1,32 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Referral
+    network: bsc
+    source:
+      address: "0x04341f9b0b8CDB294FE0A3CC34f6930c4E3665C1"
+      abi: Referral
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - OperatorUpdated
+        - OwnershipTransferred
+        - ReferralCommissionRecorded
+        - ReferralRecorded
+      abis:
+        - name: Referral
+          file: ./abis/Referral.json
+      eventHandlers:
+        - event: OperatorUpdated(indexed address,indexed bool)
+          handler: handleOperatorUpdated
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: ReferralCommissionRecorded(indexed address,uint256)
+          handler: handleReferralCommissionRecorded
+        - event: ReferralRecorded(indexed address,indexed address)
+          handler: handleReferralRecorded
+      file: ./src/mapping.ts

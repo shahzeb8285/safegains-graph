@@ -1,0 +1,16 @@
+{
+  "name": "safegains-graph",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ shahzeb8285/safegains-graph",
+    "create-local": "graph create --node http://localhost:8020/ shahzeb8285/safegains-graph",
+    "remove-local": "graph remove --node http://localhost:8020/ shahzeb8285/safegains-graph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 shahzeb8285/safegains-graph"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.22.4",
+    "@graphprotocol/graph-ts": "0.22.1"
+  }
+}
